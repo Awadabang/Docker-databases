@@ -30,7 +30,7 @@ services:
     image: mysql:5.7.30
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: zhycgz666!!!
+      MYSQL_ROOT_PASSWORD: 123456
       command:
         --default-authentication-plugin=mysql_native_password
         --character-set-server=utf8mb4

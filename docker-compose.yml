@@ -20,9 +20,12 @@ services:
     ports:
       - 27017:27017
     volumes:
-     - $PWD/mongodb/data/db:/data/db
-     - $PWD/mongodb/data/log:/var/log/mongodb
-     - $PWD/mongodb/data/config:/etc/mongo
+      - $PWD/mongodb/data/db:/data/db
+      - $PWD/mongodb/data/log:/var/log/mongodb
+      - $PWD/mongodb/data/config:/etc/mongo
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=admin
     networks:
       - im-web
   im-mysql:

@@ -1,7 +1,7 @@
 version: '3.8'
 services:
-  im-redis:
-    container_name: im-redis
+  db-redis:
+    container_name: db-redis
     image: redis
     restart: always
     ports:
@@ -12,9 +12,9 @@ services:
       - $PWD/redis/data:/data
       - $PWD/redis/conf/redis.conf:/etc/redis/redis.conf
     networks:
-      - im-web
-  im-mongo:
-    container_name: im-mongo
+      - db-web
+  db-mongo:
+    container_name: db-mongo
     image: mongo
     restart: always
     ports:
@@ -27,9 +27,9 @@ services:
       - MONGO_INITDB_ROOT_USERNAME=admin
       - MONGO_INITDB_ROOT_PASSWORD=admin
     networks:
-      - im-web
-  im-mysql:
-    container_name: im-mysql
+      - db-web
+  db-mysql:
+    container_name: db-mysql
     image: mysql:5.7.30
     restart: always
     environment:
@@ -47,9 +47,9 @@ services:
       - $PWD/mysql/data:/var/lib/mysql
       - /etc/localtime:/etc/localtime:ro
     networks:
-      - im-web
+      - db-web
 
 networks:
 
-  im-web:
+  db-web:
     driver: bridge

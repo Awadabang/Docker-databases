@@ -2,5 +2,6 @@ docker-compose.yml
 redis/conf/redis.conf
 
 mongodb/data/*
+mongodb-rs0/data/*
 mysql/data/*
 redis/data/*

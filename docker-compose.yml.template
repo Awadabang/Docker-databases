@@ -36,7 +36,6 @@ services:
       - |
         chmod 400 /data/mongodb.key
         chown 999:999 /data/mongodb.key
-        exec docker-entrypoint.sh $$@
   db-mongo-rs0:
     container_name: db-mongo-rs0
     image: mongo
@@ -47,7 +46,7 @@ services:
       - $PWD/mongodb-rs0/data/db:/data/db
       - $PWD/mongodb-rs0/data/log:/var/log/mongodb
       - $PWD/mongodb-rs0/data/config:/etc/mongo
-      - $PWD/mongodb/mongodb.key:/data/mongodb.key
+      - $PWD/mongodb-rs0/mongodb.key:/data/mongodb.key
     environment:
       - MONGO_INITDB_ROOT_USERNAME=admin
       - MONGO_INITDB_ROOT_PASSWORD=admin
@@ -60,7 +59,6 @@ services:
       - |
         chmod 400 /data/mongodb.key
         chown 999:999 /data/mongodb.key
-        exec docker-entrypoint.sh $$@
   db-mysql:
     container_name: db-mysql
     image: mysql:5.7.30
